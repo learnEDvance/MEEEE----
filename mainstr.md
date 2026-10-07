@@ -7,3 +7,4 @@ here is my main structure:
 6. Hi! me(email,insta(mostly dead),discord,github)
 
 **the website is non linear**
+hence all these sections and sub sections are arranged in layers and nets. 
