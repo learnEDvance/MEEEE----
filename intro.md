@@ -50,14 +50,13 @@ There are ten primary greeting stages.
 ```text
 Z = 0    Bangla
 Z = 1    Hindi
-Z = 2    English
-Z = 3    Sanskrit
-Z = 4    German
-Z = 5    Japanese
-Z = 6    Mathematics
-Z = 7    C
-Z = 8    Assembly
-Z = 9    Final English Hello
+Z = 2    Sanskrit
+Z = 3    German
+Z = 4    Japanese
+Z = 5    Mathematics
+Z = 6    C
+Z = 7    Assembly
+Z = 8    Final English Hello
 ```
 
 The greetings are actual DOM elements positioned in CSS 3D space.
@@ -214,23 +213,7 @@ It occupies the next depth level after Bangla and has its own surrounding inform
 
 ---
 
-## 9. Z = 2 — English
-
-### Main Object
-
-```text
-Greetings
-```
-
-The English greeting is intentionally `Greetings` rather than `Hello`.
-
-The actual `Hello!` is reserved for the end of the intro.
-
-This creates a distinction between the English greeting layer and the final destination.
-
----
-
-## 10. Z = 3 — Sanskrit
+## 10. Z = 2 — Sanskrit
 
 ### Main Object
 
@@ -242,7 +225,7 @@ The Sanskrit greeting occupies its own Z level and has its own surrounding objec
 
 ---
 
-## 11. Z = 4 — German
+## 11. Z = 3 — German
 
 ### Main Object
 
@@ -254,7 +237,7 @@ German is represented using its own greeting and contextual objects.
 
 ---
 
-## 12. Z = 5 — Japanese
+## 12. Z = 4 — Japanese
 
 ### Main Object
 
@@ -266,7 +249,7 @@ Japanese occupies another independent spatial layer.
 
 ---
 
-## 13. Z = 6 — Mathematics
+## 13. Z = 5 — Mathematics
 
 At this point the intro leaves conventional spoken languages.
 
@@ -286,7 +269,7 @@ It may have smaller mathematical or contextual objects around it.
 
 ---
 
-## 14. Z = 7 — C
+## 14. Z = 6 — C
 
 The next layer expresses the greeting through C.
 
@@ -300,7 +283,7 @@ This begins the transition from human languages into programming languages.
 
 ---
 
-## 15. Z = 8 — Assembly
+## 15. Z = 7 — Assembly
 
 The next layer expresses `Hello!` in assembly.
 
@@ -312,7 +295,7 @@ This layer is intentionally included partly for fun.
 
 ---
 
-## 16. Z = 9 — Final Hello
+## 16. Z = 8 — Final Hello
 
 The deepest layer is deliberately simple.
 
@@ -620,7 +603,7 @@ The intro should also communicate something personal:
 The intro ends when the visitor reaches:
 
 ```text
-Z = 9
+Z = 8
 ```
 
 and encounters:
@@ -668,26 +651,21 @@ Z = 1
         ↓
 
 Z = 2
-Greetings
-
-        ↓
-
-Z = 3
 नमस्तः
 
         ↓
 
-Z = 4
+Z = 3
 Hallo
 
         ↓
 
-Z = 5
+Z = 4
 こんにちは
 
         ↓
 
-Z = 6
+Z = 5
 
 ∀ you ∈ U,
     ∃ hello ∈ H
@@ -695,19 +673,19 @@ Z = 6
 
         ↓
 
-Z = 7
+Z = 6
 
 printf("Hello!");
 
         ↓
 
-Z = 8
+Z = 7
 
 Hello in Assembly
 
         ↓
 
-Z = 9
+Z = 8
 
 Hello!
 ```

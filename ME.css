@@ -1,0 +1,43 @@
+body {
+    margin: 0px;
+    background-color: black;
+}
+.z-layer {
+    transform: translateZ(calc(var(--i) * -150px));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+}
+.greeting {
+    font-size: 60px;
+    color: white;
+    font-family: "Cascadia Mono";
+    font-weight: 500;
+    border: 2px dotted white;
+    background-color: transparent;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 18px;
+}
+.greetcode {
+    font-size: 26px;
+    color: white;
+    font-family: "Cascadia Mono";
+    font-weight: 500;
+    border: 2px dotted white;
+    background-color: transparent;
+    padding: 10px 10px;
+    text-align: center;
+    border-radius: 18px;
+}
+#world {
+    position:fixed;
+    inset: 0;
+    perspective: 2000px;
+    transform-style: preserve-3d;
+}
+#track {
+    height: 900vh;
+}
