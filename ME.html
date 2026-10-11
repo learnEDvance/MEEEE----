@@ -8,32 +8,32 @@
     </head>
     <body>
         <div id="world">
-            <section class="z-layer" data-z="0">
+            <section class="z-layer" data-z="0" style="--i: 0">
                 <div class="greeting">
                     নমস্কার!
                 </div>
             </section>
-            <section class="z-layer" data-z="1">
+            <section class="z-layer" data-z="1" style="--i: 1">
                 <div class="greeting">
                     नमस्ते!
                 </div>
             </section>
-            <section class="z-layer" data-z="2">
+            <section class="z-layer" data-z="2" style="--i: 2">
                 <div class="greeting">
                     प्रणामः
                 </div>
             </section>
-            <section class="z-layer" data-z="3">
+            <section class="z-layer" data-z="3" style="--i: 3">
                 <div class="greeting">
                     Hallo!
                 </div>
             </section>
-            <section class="z-layer" data-z="4">
+            <section class="z-layer" data-z="4" style="--i: 4">
                 <div class="greeting">
                     こんにちは
                 </div>
             </section>
-            <section class="z-layer" data-z="5">
+            <section class="z-layer" data-z="5" style="--i: 5">
                 <div class="greetcode">
                     ∀ u ∈ U,<br>
                     ∃ h ∈ H:<br>
@@ -41,12 +41,12 @@
 
                 </div>
             </section>
-            <section class="z-layer" data-z="6">
+            <section class="z-layer" data-z="6" style="--i: 6">
                 <div class="greeting">
                     printf("Hello!");
                 </div>
             </section>
-            <section class="z-layer" data-z="7">
+            <section class="z-layer" data-z="7" style="--i: 7">
                 <div class="greetcode">
                     section .data<br>
                     &nbsp;msg db "Hello!", 10<br>
@@ -67,7 +67,7 @@
                     &nbsp;syscall<br>
                 </div>
             </section>
-            <section class="z-layer" data-z="8">
+            <section class="z-layer" data-z="8" style="--i: 8">
                 <div class="greeting">
                    Hello! 
                 </div>
@@ -75,7 +75,17 @@
         </div>
         <div id="track"></div>
         <script>
-            console.log("temp")
+            const world = document.getElementById('world');
+            const track = document.getElementById('track');
+            const range = track.offsetHeight - window.innerHeight;
+
+            function steer() {
+                const camZ = (window.scrollY / range) * 1200;
+                world.style.transform = 'translateZ(' + camZ + 'px)';
+            }
+
+            window.addEventListener('scroll', steer);
+            steer();
         </script>
     </body>
 </html>

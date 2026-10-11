@@ -114,7 +114,19 @@ choice.
   10px 10px, border-radius 18px uniform — NOTE: `%` radius was tried and rejected
   by the architect for making elliptical "parabolic" corners; `px` is the box
   standard). Math indent uses `&nbsp;`. Console log currently `"temp"`.
-  CURRENT TASK: T2 — the 3D stage.
+- T2 status: GREEN — all nine sections carry `style="--i: n"` matched to `data-z`;
+  `#world` is fixed with perspective 2000px + preserve-3d; `.z-layer` absolute/
+  inset-0/flex with `translateZ(calc(var(--i) * -150px))`; `#track` 900vh.
+  Layers form a depth corridor (layer 0 at 0 → layer 8 at −1200px).
+- T3a status: GREEN — scroll-driven camera verified correct (getElementById for
+  world + track, range = track.offsetHeight - innerHeight, camZ =
+  (scrollY/range)*1200, world.style.transform = translateZ(camZ), scroll
+  listener + initial call). T3b (opacity-by-distance fade, "only the front-most
+  speaks") is NEXT, then T4 (bottom bar + click-to-jump), T5 (Bangla info
+  objects + settle/unfurl choreography), T6 (polish, easing, handoff, twin-rule
+  refactor).
+  Project ETA (honest, at ~2h/session): intro ≈ 4–5h more across 2–3 sessions;
+  AURONIMA site per interaction design.md ≈ 10–16h+ afterward.
 - ARCHITECT'S SPATIAL INTERACTION MODEL (design contract for T3/T5): only the
   layer nearest the camera is visible/dominant; approaching layers grow and whiz
   past the camera plane. Because main objects are transparent, layers far from
