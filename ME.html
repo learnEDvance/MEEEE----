@@ -9,32 +9,32 @@
     <body>
         <div id="stage">
             <div id="world">
-                <section class="z-layer" data-z="0" style="--i: 0">
+                <section class="z-layer" data-z="0">
                     <div class="greeting">
                         নমস্কার!
                     </div>
                 </section>
-                <section class="z-layer" data-z="1" style="--i: 1">
+                <section class="z-layer" data-z="1">
                     <div class="greeting">
                         नमस्ते!
                     </div>
                 </section>
-                <section class="z-layer" data-z="2" style="--i: 2">
+                <section class="z-layer" data-z="2">
                     <div class="greeting">
                         प्रणामः
                     </div>
                 </section>
-                <section class="z-layer" data-z="3" style="--i: 3">
+                <section class="z-layer" data-z="3">
                     <div class="greeting">
                         Hallo!
                     </div>
                 </section>
-                <section class="z-layer" data-z="4" style="--i: 4">
+                <section class="z-layer" data-z="4">
                     <div class="greeting">
                         こんにちは
                     </div>
                 </section>
-                <section class="z-layer" data-z="5" style="--i: 5">
+                <section class="z-layer" data-z="5">
                     <div class="greetcode">
                         ∀ u ∈ U,<br>
                         ∃ h ∈ H:<br>
@@ -42,12 +42,12 @@
     
                     </div>
                 </section>
-                <section class="z-layer" data-z="6" style="--i: 6">
+                <section class="z-layer" data-z="6">
                     <div class="greeting">
                         printf("Hello!");
                     </div>
                 </section>
-                <section class="z-layer" data-z="7" style="--i: 7">
+                <section class="z-layer" data-z="7">
                     <div class="greetcode">
                         section .data<br>
                         &nbsp;msg db "Hello!", 10<br>
@@ -68,7 +68,7 @@
                         &nbsp;syscall<br>
                     </div>
                 </section>
-                <section class="z-layer" data-z="8" style="--i: 8">
+                <section class="z-layer" data-z="8">
                     <div class="greeting">
                        Hello! 
                     </div>
@@ -80,12 +80,29 @@
             const world = document.getElementById('world');
             const track = document.getElementById('track');
             const range = track.offsetHeight - window.innerHeight;
+            const BASE = 1400;
+            const FACTOR = 1.8;
+
+            const layers = [...document.querySelectorAll('.z-layer')];
+            const gaps = layers.map(layer => BASE + FACTOR * layer.firstElementChild.offsetHeight);
+
+            const stops = [];
+            let depth = 0;
+            layers.forEach((layer, i) => {
+                stops.push(depth);
+                layer.style.setProperty('--z', -depth + 'px');
+                depth += gaps[i];
+            });
+            const totalDepth = stops[stops.length - 1];
 
             function steer() {
-                const camZ = (window.scrollY / range) * 1200;
-                world.style.transform = 'translateZ(' + camZ + 'px)';
+                const camZ = (window.scrollY / range) * totalDepth;
+                world.style.transform = 'translateZ(' +camZ + 'px)';
+                layers.forEach((layer, i) => {
+                    const distance = camZ - stops[i];
+                    layer.style.opacity = Math.max(0, Math.min(1, 1 + distance / gaps[i]));
+                });
             }
-
             window.addEventListener('scroll', steer);
             steer();
         </script>

@@ -3,7 +3,7 @@ body {
     background-color: black;
 }
 .z-layer {
-    transform: translateZ(calc(var(--i) * -150px));
+    transform: translateZ(var(--z, 0px));
     display: flex;
     justify-content: center;
     align-items: center;
