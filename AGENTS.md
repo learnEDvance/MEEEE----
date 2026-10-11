@@ -121,7 +121,16 @@ choice.
 - T3a status: GREEN — scroll-driven camera verified correct (getElementById for
   world + track, range = track.offsetHeight - innerHeight, camZ =
   (scrollY/range)*1200, world.style.transform = translateZ(camZ), scroll
-  listener + initial call). T3b (opacity-by-distance fade, "only the front-most
+  listener + initial call). GOTCHA (verified in headless Chrome, 2026-10-11):
+  a `transform` on the SAME element that carries `perspective` is a visual
+  no-op for its children — `perspective` applies to CHILDREN, so the camera
+  must live on an ANCESTOR of the transformed element. Fix: wrap `#world` in a
+  fixed `#stage` that owns `perspective: 2000px`; `#world` keeps
+  `preserve-3d` + receives the `translateZ` camera. JS unchanged. FIX LANDED
+  (#stage wrapper in place; indentation tidied by session) and T3a is now
+  VISUALLY GREEN — headless-Chrome scroll sweep: world transform goes
+  `translateZ(0px)` → `translateZ(1200px)`, front greeting grows 228px → 571px
+  monotonically. Camera verified working. T3b (opacity-by-distance fade, "only the front-most
   speaks") is NEXT, then T4 (bottom bar + click-to-jump), T5 (Bangla info
   objects + settle/unfurl choreography), T6 (polish, easing, handoff, twin-rule
   refactor).

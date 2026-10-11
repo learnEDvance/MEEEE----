@@ -33,11 +33,15 @@ body {
     border-radius: 18px;
 }
 #world {
-    position:fixed;
+    position: absolute;
     inset: 0;
-    perspective: 2000px;
     transform-style: preserve-3d;
 }
 #track {
     height: 900vh;
+}
+#stage {
+    position: fixed;
+    inset: 0;
+    perspective: 2000px;
 }
